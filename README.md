@@ -10,7 +10,7 @@ Add `test-with-files` to your `project.clj`, and include
 ```cl
 :profiles {:dev {:dependencies [[test-with-files "0.1.0"]]
                  :resource-paths ["test/resources"]}}
-                 ```
+```
 
 ## Usage
 
