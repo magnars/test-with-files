@@ -12,6 +12,10 @@ Add `test-with-files` to your `project.clj`, and include
                  :resource-paths ["test/resources"]}}
 ```
 
+You should probably also add a `.gitkeep` file to `test/resources` if
+you have no other files in there - or it is not properly added to the
+classpath when leiningen starts.
+
 ## Usage
 
 #### with-files
