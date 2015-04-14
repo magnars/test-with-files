@@ -39,3 +39,9 @@
 
  (with-files [["/abc.txt" "123"]]
    (file-last-modified (io/resource (str public-dir "/abc.txt"))) => *last-modified*))
+
+(fact
+ "You can pass in an empty list of files, without test-with-files blowing up."
+
+ (with-files []
+   :no-exceptions-please) => :no-exceptions-please)

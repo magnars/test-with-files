@@ -31,5 +31,6 @@
      (binding [*last-modified* (* (.intValue (/ (System/currentTimeMillis) 1000)) 1000)]
        (doseq [[path# contents#] ~files] (create-file-and-dirs path# contents#))
        (let [result# (do ~@body)]
-         (delete-file-recursively tmp-dir)
+         (when (.exists (io/file tmp-dir))
+           (delete-file-recursively tmp-dir))
          result#))))
