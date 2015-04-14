@@ -8,7 +8,7 @@ Add `test-with-files` to your `project.clj`, and include
 `test/resources` in the dev resource path:
 
 ```cl
-:profiles {:dev {:dependencies [[test-with-files "0.1.0"]]
+:profiles {:dev {:dependencies [[test-with-files "0.1.1"]]
                  :resource-paths ["test/resources"]}}
 ```
 

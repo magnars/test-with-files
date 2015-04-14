@@ -1,4 +1,4 @@
-(defproject test-with-files "0.1.0"
+(defproject test-with-files "0.1.1"
   :description "Easily write tests with files."
   :url "http://github.com/magnars/test-with-files"
   :license {:name "Eclipse Public License"
