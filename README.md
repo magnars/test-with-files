@@ -1,5 +1,4 @@
-# test-with-files [![Build Status](https://secure.travis-ci.org/magnars/test-with-files.png)](http://travis-ci.org/magnars/test-with-files)
-[![Dependencies Status](https://jarkeeper.com/magnars/test-with-files/status.svg)](https://jarkeeper.com/magnars/test-with-files)
+# test-with-files [![Build Status](https://secure.travis-ci.org/magnars/test-with-files.png)](http://travis-ci.org/magnars/test-with-files) [![Dependencies Status](https://jarkeeper.com/magnars/test-with-files/status.svg)](https://jarkeeper.com/magnars/test-with-files)
 
 A Clojure library to easily write tests with files.
 
