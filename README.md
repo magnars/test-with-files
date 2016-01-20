@@ -2,7 +2,10 @@
 
 A Clojure library to easily write tests with files.
 
-## Install
+## Installation
+
+Latest stable version:
+[![Clojars Project](https://img.shields.io/clojars/v/test-with-files.svg)](https://clojars.org/test-with-files)
 
 Add `test-with-files` to your `project.clj`, and include
 `test/resources` in the dev resource path:
