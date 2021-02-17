@@ -29,7 +29,7 @@ cleaned up afterwards.
             [clojure.test :refer [deftest is]]
             [test-with-files.tools :refer [with-tmp-dir]]))
 
-(deftest with-tmp-dir
+(deftest with-tmp-dir-test
   (is (= (with-tmp-dir tmp-dir
            (spit (io/file tmp-dir "foo.txt") "I'm here")
            (slurp (io/file tmp-dir "foo.txt")))
@@ -50,7 +50,7 @@ use in your tests.
             [clojure.test :refer [deftest is]]
             [test-with-files.tools :refer [with-files]]))
 
-(deftest with-files
+(deftest with-files-test
   (is (= (with-files tmp-dir ["foo.txt" "I'm here"
                               "bar/baz.txt" "Me too"]
            [(slurp (io/file tmp-dir "foo.txt"))
@@ -77,7 +77,7 @@ file system, you can use `with-resources` instead.
             [clojure.test :refer [deftest is]]
             [test-with-files.tools :refer [with-resources]]))
 
-(deftest with-resources
+(deftest with-resources-test
   (is (= (with-resources tmp-dir ["foo.txt" "I'm here"
                                   "bar/baz.txt" "Me too"]
            [(slurp (io/resource (str tmp-dir "foo.txt")))
