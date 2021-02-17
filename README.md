@@ -30,7 +30,7 @@ cleaned up afterwards.
             [test-with-files.tools :refer [with-tmp-dir]]))
 
 (deftest with-tmp-dir
-  (is (= (sut/with-tmp-dir tmp-dir
+  (is (= (with-tmp-dir tmp-dir
            (spit (io/file tmp-dir "foo.txt") "I'm here")
            (slurp (io/file tmp-dir "foo.txt")))
          "I'm here")))
@@ -78,8 +78,8 @@ file system, you can use `with-resources` instead.
             [test-with-files.tools :refer [with-resources]]))
 
 (deftest with-resources
-  (is (= (sut/with-resources tmp-dir ["foo.txt" "I'm here"
-                                      "bar/baz.txt" "Me too"]
+  (is (= (with-resources tmp-dir ["foo.txt" "I'm here"
+                                  "bar/baz.txt" "Me too"]
            [(slurp (io/resource (str tmp-dir "foo.txt")))
             (slurp (io/resource (str tmp-dir "bar/baz.txt")))])
          ["I'm here" "Me too"])))
@@ -94,7 +94,7 @@ Using leiningen, that would be done like this:
 :profiles {:dev {:resource-paths ["test/resources"]}}
 ```
 
-You should probably also addf a `.gitkeep` file to `test/resources` if
+You should probably also add a `.gitkeep` file to `test/resources` if
 you have no other files in there - or it is not properly added to the
 classpath when leiningen starts.
 
