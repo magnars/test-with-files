@@ -4,10 +4,19 @@
             [test-with-files.tools :as sut]))
 
 (deftest with-tmp-dir
-  (is (= (sut/with-tmp-dir tmp-dir
-           (spit (io/file tmp-dir "foo.txt") "I'm here")
-           (slurp (io/file tmp-dir "foo.txt")))
-         "I'm here")))
+  (testing "with defaults"
+    (is (= (sut/with-tmp-dir tmp-dir
+             (spit (io/file tmp-dir "foo.txt") "I'm here")
+             (slurp (io/file tmp-dir "foo.txt")))
+           "I'm here")))
+  ;; Uncomment to test delete-dir false
+  ;; not normally run b/c it leaves dirs behind when it's working correctly
+  #_(testing "with delete-dir false"
+      (is (= (sut/with-tmp-dir tmp-dir {::sut/delete-dir false}
+               (spit (io/file tmp-dir "foo.txt") "I'm here")
+               (println "tmp dir:" tmp-dir)
+               (slurp (io/file tmp-dir "foo.txt")))
+             "I'm here"))))
 
 (deftest create-files
   (is (= (sut/with-tmp-dir tmp-dir
