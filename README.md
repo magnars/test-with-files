@@ -4,16 +4,10 @@ A Clojure library to easily write tests with files.
 
 ## Install
 
-Leiningen / Boot:
-
-```clj
-[com.magnars/test-with-files "2021-02-17"]
-```
-
 Clojure CLI/deps.edn:
 
 ```clj
-com.magnars/test-with-files {:mvn/version "2021-02-17"}
+io.github.cap10morgan/test-with-files {:git/tag "v1.0.0" :git/sha ""}
 ```
 
 ## Usage
