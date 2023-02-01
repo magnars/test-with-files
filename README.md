@@ -39,6 +39,32 @@ cleaned up afterwards.
 The first parameter `tmp-dir` passed to `with-tmp-dir` is a binding, exposing the
 temporary directory path to be used in the body of the macro.
 
+##### :test-with-files.tools/delete-dir
+
+If you supply map with the keyword key `:test-with-files.tools/delete-dir` set
+to `false`, the tmp dir will not be cleaned up when it goes out of scope. This
+is intended to help with e.g. test debugging.
+
+For example:
+
+```clj
+(ns my-test
+  (:require [clojure.java.io :as io]
+            [clojure.test :refer [deftest is]]
+            [test-with-files.tools :as twf :refer [with-tmp-dir]]))
+            
+(deftest with-tmp-dir-test
+    (is (= (with-tmp-dir tmp-dir {::twf/delete-dir false}
+             (spit (io/file tmp-dir "foo.txt") "I'm here")
+             (println "tmp-dir:" tmp-dir)
+             (slurp (io/file tmp-dir "foo.txt")))
+           "I'm here"))
+```
+
+Will print out the tmp-dir path and leave it in place after the test finishes.
+Probably you'll want to remove the `{::twf/delete-dir false}` once you get the
+test passing.
+
 #### with-files
 
 Using `with-files`, you get a nice declarative way of creating files to
