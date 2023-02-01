@@ -7,7 +7,7 @@ A Clojure library to easily write tests with files.
 Clojure CLI/deps.edn:
 
 ```clj
-io.github.cap10morgan/test-with-files {:git/tag "v1.0.0" :git/sha ""}
+io.github.cap10morgan/test-with-files {:git/tag "v1.0.0" :git/sha "9181a2e"}
 ```
 
 ## Usage
